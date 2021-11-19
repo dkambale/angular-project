@@ -1,0 +1,28 @@
+<div class="card text-center" style="background: gainsboro">
+  
+  <div class="card-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Reward Management</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" routerLink='product'>Product</a>
+          <a class="nav-item nav-link" routerLink="customer">Customer</a>
+          <a class="nav-item nav-link" routerLink="order">Order</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  
+  <div class="card-body">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="card-footer text-muted">
+    Coding World
+  </div>
+  
+</div>

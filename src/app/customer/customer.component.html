@@ -1,0 +1,30 @@
+<div style="padding: 10px;margin: 10px;">
+    <div>
+        <form (submit)="saveCustomer()" #customerForm="ngForm">
+            <label for="customername">Customer Name</label>
+            <input type="text" id="customerName" name="name" required [(ngModel)]="customerService.customer.name"
+                class="form-control">
+            <label for="reward">Customer Reward</label>
+            <input type="text" id="reward" name="reward" [(ngModel)]="customerService.customer.reward"
+                class="form-control">
+            <button type="submit" [disabled]="!customerForm.form.valid" class="btn btn-primary">Save</button>
+        </form>
+    </div> 
+    <div>
+        <h2> List Of Customers</h2>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Reward</th>
+            </tr>
+            <tr *ngFor="let customer of customerService.customers">
+                <td>
+                    {{customer.name}}
+                </td>
+                <td>
+                    {{customer.reward}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

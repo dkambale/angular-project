@@ -1,0 +1,64 @@
+<div style="padding: 10px;margin: 10px;">
+    <form>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Create Order</label>
+        </div>
+        <div class="form-group">
+            <label for="forCustomer">Select Customer</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="selectCustomer" [(ngModel)]="selectedCustomer">
+                <option>Select Customer</option>
+                <option *ngFor="let customer of customerService.customers" [ngValue]="customer">{{customer.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="forProduct">Select Product</label>
+            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="selectedProduct" name="selectProduct">
+                <option>Select product</option>
+                <option *ngFor="let product of productService.products" [ngValue]="product">{{product.name}}</option>
+            </select>
+        </div>
+        <div style="display: flex;">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" (click)="addProduct()">Add Product</button>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" (click)="submitOrder()"> Submit order</button>
+            </div>
+        </div>
+    </form>
+    <div>
+        <h2>Added products in Order</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <th>Product name</th>
+                <th>Product Price</th>
+            </thead>
+            <tr *ngFor="let pr of order.products">
+                <td>{{pr.name}}</td>
+                <td>{{pr.price}}</td>
+            </tr>
+            <tr>
+                <td>
+
+                    "Total"
+                </td>
+                <td>{{order.total}}</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h2>List Of Orders</h2>
+        <table class="table">
+            <tr>
+                <th>Customer name</th>
+                <th>Total Price</th>
+            </tr>
+            <tr *ngFor="let order of orders">
+                <td>
+                    {{order.customer.name}}
+                </td>
+                <td>{{order.total}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
